@@ -4,10 +4,12 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { Home } from "./src/views/Home";
 import { List } from "./src/views/List";
+import { Recipe } from "./src/views/Recipe";
 
 const MainNavigator = createStackNavigator({
   Home: { screen: Home },
-  List: { screen: List }
+  List: { screen: List },
+  Recipe: { screen: Recipe }
 });
 
 const App = createAppContainer(MainNavigator, {

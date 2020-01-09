@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, ScrollView, View } from "react-native";
 import { colors } from "../styles/const";
+import { Card } from "../components/card";
 
-export const List = () => {
+export const List = props => {
   useEffect(() => {
     axios
       .get(
@@ -17,10 +18,19 @@ export const List = () => {
   const [recipes, setRecipes] = useState([]);
   return (
     <View style={styles.container}>
-      {recipes.length > 0 &&
-        recipes.map(recipe => (
-          <Text key={recipe.recipe.label}>{recipe.recipe.label}</Text>
-        ))}
+      <ScrollView>
+        {recipes.length > 0 &&
+          recipes.map(recipe => (
+            <Card
+              onPress={() =>
+                props.navigation.navigate("Recipe", { recipe: recipe.recipe })
+              }
+              key={recipe.recipe.label}
+              title={recipe.recipe.label}
+              imgUrl={recipe.recipe.image}
+            />
+          ))}
+      </ScrollView>
     </View>
   );
 };
@@ -28,8 +38,9 @@ export const List = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    color: colors.main,
-    backgroundColor: colors.background,
-    alignItems: "center"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "flex-start"
   }
 });
