@@ -28,6 +28,7 @@ export const List = props => {
               key={recipe.recipe.label}
               title={recipe.recipe.label}
               imgUrl={recipe.recipe.image}
+              tags={recipe.recipe.digest}
             />
           ))}
       </ScrollView>
