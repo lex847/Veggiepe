@@ -4,14 +4,17 @@ import { colors } from "../styles/const";
 import { Card } from "../components/card";
 import { ListComponent } from "../components/customList";
 import { Chart } from "../components/chart";
+import { Loading } from "../components/loading";
 
 export const Recipe = props => {
   useEffect(() => {
     setRecipe(props.navigation.getParam("recipe"));
+    setIsLoading(false);
   }, []);
 
   const [recipe, setRecipe] = useState({});
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  return !isLoading ? (
     <ScrollView>
       <View style={styles.container}>
         <ListComponent title="Ingredients" data={recipe.ingredientLines} />
@@ -28,6 +31,8 @@ export const Recipe = props => {
         </View>
       </View>
     </ScrollView>
+  ) : (
+    <Loading />
   );
 };
 

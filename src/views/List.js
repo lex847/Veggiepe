@@ -3,6 +3,7 @@ import axios from "axios";
 import { StyleSheet, Text, ScrollView, View } from "react-native";
 import { colors } from "../styles/const";
 import { Card } from "../components/card";
+import { Loading } from "../components/loading";
 
 export const List = props => {
   useEffect(() => {
@@ -12,11 +13,13 @@ export const List = props => {
       )
       .then(response => {
         setRecipes(response.data.hits);
+        setIsLoading(false);
       });
   }, []);
 
   const [recipes, setRecipes] = useState([]);
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  return !isLoading ? (
     <View style={styles.container}>
       <ScrollView>
         {recipes.length > 0 &&
@@ -33,6 +36,8 @@ export const List = props => {
           ))}
       </ScrollView>
     </View>
+  ) : (
+    <Loading />
   );
 };
 
