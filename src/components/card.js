@@ -10,7 +10,9 @@ export const Card = ({ imgUrl, title, style, onPress, tags }) => (
       style={{ width: "100%", height: "70%" }}
       source={imgUrl ? { uri: imgUrl } : require("../../assets/background.jpg")}
     ></Image>
-    <Subtitle style={styles.title}>{title}</Subtitle>
+    <View style={{ paddingLeft: 10, paddingTop: 5, paddingBottom: 5 }}>
+      <Subtitle>{title}</Subtitle>
+    </View>
     <View style={styles.tagsContainer}>
       {tags.map((tag, idx) => (
         <Tag tag={tag} key={idx} />
@@ -20,21 +22,16 @@ export const Card = ({ imgUrl, title, style, onPress, tags }) => (
 );
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height: 270,
     margin: 10,
     borderWidth: 1,
-    borderColor: colors.main,
+    borderColor: colors.grey,
     borderRadius: 5,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingRight: 10,
-    paddingLeft: 10
-  },
-  title: {
-    paddingTop: 30
+    paddingBottom: 10
   },
   tagsContainer: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    paddingLeft: 10
   }
 });
