@@ -19,16 +19,20 @@ const tagsMap = [
 ];
 
 export const Tag = ({ tag }) => (
-  <View>
+  <View style={styles.container}>
     {tagsMap.map(
-      tagItem =>
+      (tagItem, index) =>
         tagItem.name === tag.tag &&
         tagItem.min <= tag.total && (
           <View
-            style={(styles.tag, { backgroundColor: tagItem.color })}
-            key={tagItem.name}
+            style={{
+              backgroundColor: tagItem.color,
+              borderRadius: 3,
+              marginRight: 5
+            }}
+            key={index}
           >
-            <Text>{tag.label}</Text>
+            <Text style={styles.text}>{tag.label}</Text>
           </View>
         )
     )}
@@ -36,14 +40,10 @@ export const Tag = ({ tag }) => (
 );
 const styles = StyleSheet.create({
   container: {
-    width: 30,
-    height: 20,
-    padding: 20
+    marginTop: 5
   },
-  tag: {
-    width: 30,
-    height: 20,
-    color: "white",
-    padding: 10
+  text: {
+    color: "#FFF",
+    padding: 5
   }
 });

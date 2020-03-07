@@ -20,12 +20,12 @@ export const List = props => {
     <View style={styles.container}>
       <ScrollView>
         {recipes.length > 0 &&
-          recipes.map(recipe => (
+          recipes.map((recipe, index) => (
             <Card
               onPress={() =>
                 props.navigation.navigate("Recipe", { recipe: recipe.recipe })
               }
-              key={recipe.recipe.label}
+              key={index}
               title={recipe.recipe.label}
               imgUrl={recipe.recipe.image}
               tags={recipe.recipe.digest}
