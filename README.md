@@ -1,5 +1,5 @@
-# Veggiepe
-A react-native app of veggie recipes
+# Veggiepe 🥕
+A react-native app of veggie recipes for people looking for an healthy diet which takes into account restrictions, nutrients and intolerances.
 
 
 ## Stack
