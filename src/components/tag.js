@@ -15,6 +15,12 @@ const tagsMap = [
     label: "Iron",
     min: 2,
     color: colors.tertiary
+  },
+  {
+    name: "VITB12",
+    label: "Vitamin B12",
+    min: 5,
+    color: colors.secondary
   }
 ];
 
@@ -23,7 +29,7 @@ export const Tag = ({ tag }) => (
     {tagsMap.map(
       (tagItem, index) =>
         tagItem.name === tag.tag &&
-        tagItem.min <= tag.total && (
+        tagItem.min <= ~tag.daily / ~tag.total && (
           <View
             style={{
               backgroundColor: tagItem.color,
