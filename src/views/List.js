@@ -13,7 +13,6 @@ export const List = props => {
 
   useEffect(() => {
     fetchRecipes();
-    console.log("called");
   }, [tags]);
 
   const fetchRecipes = () => {
@@ -115,6 +114,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingLeft: 30,
     backgroundColor: colors.tertiary,
-    opacity: 1
+    opacity: 1,
+    marginRight: 10
   }
 });

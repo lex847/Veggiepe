@@ -21,6 +21,12 @@ const tagsMap = [
     label: "Vitamin B12",
     min: 5,
     color: colors.secondary
+  },
+  {
+    name: "TOCPHA",
+    label: "Vitamin E",
+    min: 5,
+    color: colors.grey
   }
 ];
 
