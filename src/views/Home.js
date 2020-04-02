@@ -1,26 +1,25 @@
 import React from "react";
 import axios from "axios";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import { Title } from "../styles/title";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Title, Subtitle } from "../styles/title";
 import { CustomButton } from "../components/button";
-import { colors } from "../styles/const";
+import { colors, font } from "../styles/const";
 
 export const Home = props => {
   return (
-    <ImageBackground
+    <TouchableOpacity
       style={styles.container}
-      source={require("../../assets/background.jpg")}
+      onPress={() => props.navigation.navigate("List")}
     >
-      <View style={styles.titleContainer}>
-        <Title>Veggiepe</Title>
-      </View>
-      <View style={styles.buttonContainer}>
-        <CustomButton
-          title="Start"
-          onPress={() => props.navigation.navigate("List")}
+      <View style={styles.logoContainer}>
+        <Image
+          source={require("../../assets/images/apple.png")}
+          style={styles.logo}
         />
       </View>
-    </ImageBackground>
+      <Title>Veggiepe</Title>
+      <Subtitle>Welcome!</Subtitle>
+    </TouchableOpacity>
   );
 };
 
@@ -29,12 +28,15 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: colors.background
   },
-  titleContainer: {
-    padding: 30,
-    backgroundColor: "rgba(242, 212, 146, 0.8)",
+  logoContainer: {
     marginBottom: 50
+  },
+  logo: {
+    width: 80,
+    height: 80
   },
   buttonContainer: {
     paddingTop: 10,

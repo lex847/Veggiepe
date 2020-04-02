@@ -7,16 +7,34 @@ import { List } from "./src/views/List";
 import { Recipe } from "./src/views/Recipe";
 
 const MainNavigator = createStackNavigator({
-  Home: { screen: Home },
-  List: { screen: List },
-  Recipe: { screen: Recipe }
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      title: "Home",
+      headerShown: false
+    }
+  },
+  List: {
+    screen: List,
+    navigationOptions: {
+      title: "List",
+      headerShown: false
+    }
+  },
+  Recipe: {
+    screen: Recipe,
+    navigationOptions: {
+      title: "Recipe",
+      headerShown: false
+    }
+  }
 });
 
 const App = createAppContainer(MainNavigator, {
   initialRouteName: "Veggiepe",
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: "#f4511e"
+      opacity: 0
     },
     headerTintColor: "#fff",
     headerTitleStyle: {

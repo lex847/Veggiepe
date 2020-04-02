@@ -2,6 +2,7 @@ import React from "react";
 import { colors } from "../styles/const";
 import { StyleSheet, Text, View } from "react-native";
 import { Subtitle } from "../styles/title";
+import { BoldText } from "../styles/text";
 
 const tagsMap = [
   {
@@ -14,7 +15,7 @@ const tagsMap = [
     name: "FE",
     label: "Iron",
     min: 2,
-    color: colors.tertiary
+    color: "#A4DB91"
   },
   {
     name: "VITB12",
@@ -26,7 +27,7 @@ const tagsMap = [
     name: "TOCPHA",
     label: "Vitamin E",
     min: 5,
-    color: colors.grey
+    color: colors.orange
   }
 ];
 
@@ -39,12 +40,13 @@ export const Tag = ({ tag }) => (
           <View
             style={{
               backgroundColor: tagItem.color,
-              borderRadius: 3,
+              borderRadius: 10,
+              padding: 5,
               marginRight: 5
             }}
             key={index}
           >
-            <Text style={styles.text}>{tag.label}</Text>
+            <BoldText style={styles.text}>{tag.label}</BoldText>
           </View>
         )
     )}
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   text: {
-    color: "#FFF",
-    padding: 5
+    color: colors.text,
+    textAlign: "center"
   }
 });
